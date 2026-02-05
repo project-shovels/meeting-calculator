@@ -58,9 +58,6 @@ main { flex: 1; }
 .header {
   background: var(--cream);
   padding: 5px 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
@@ -68,7 +65,7 @@ main { flex: 1; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 90px;
+  min-height: 60px;
 }
 
 .logo {
@@ -78,7 +75,7 @@ main { flex: 1; }
 }
 
 .logo-img {
-  height: 80px;
+  height: 48px;
   width: auto;
 }
 
