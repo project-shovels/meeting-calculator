@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meeting Cost Calculator — How Much Do Your Meetings Really Cost? | CalWizz</title>
+  <meta name="description" content="Calculate the true cost of your meetings. See how much your team spends on meetings per month and year, including hidden prep time costs. Free meeting cost calculator by CalWizz.">
+  <meta name="keywords" content="meeting cost calculator, cost of meetings, meeting ROI, calendar analytics, meeting productivity">
+  <meta name="author" content="CalWizz">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calwizz.com/calculator">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Meeting Cost Calculator — How Much Do Your Meetings Really Cost?">
+  <meta property="og:description" content="Your weekly standup might cost more than you think. Calculate the true cost of any meeting — including hidden prep time.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calwizz.com/calculator">
+  <meta property="og:site_name" content="CalWizz">
+  <meta property="og:image" content="https://calwizz.com/calculator/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Meeting Cost Calculator | CalWizz">
+  <meta name="twitter:description" content="Your weekly standup might cost more than you think. Calculate the true cost of any meeting.">
+  <meta name="twitter:image" content="https://calwizz.com/calculator/og-image.png">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Meeting Cost Calculator",
+    "description": "Calculate the true cost of your meetings including hidden prep time. See monthly and annual costs instantly.",
+    "url": "https://calwizz.com/calculator",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "CalWizz",
+      "url": "https://calwizz.com"
+    }
+  }
+  </script>
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="https://calwizz.com" class="logo" aria-label="CalWizz Home">
+        <img src="https://calwizz.com/CalWizz-logo.png" alt="CalWizz" class="logo-img">
+      </a>
+      <a href="https://app.calwizz.com" class="header-cta">Try CalWizz Free →</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1>Meeting Cost Calculator</h1>
+        <p class="hero-sub">How much do your meetings <em>really</em> cost? Spoiler: more than you think.</p>
+      </div>
+    </section>
+
+    <!-- Calculator -->
+    <section class="calculator">
+      <div class="container">
+        <div class="calc-grid">
+          <!-- Inputs Panel -->
+          <div class="inputs-panel">
+            <h2 class="panel-title">Configure Your Meeting</h2>
+
+            <!-- Attendees -->
+            <div class="input-group">
+              <label for="attendees">
+                <span class="label-text">Number of Attendees</span>
+                <span class="label-value" id="attendees-value">5</span>
+              </label>
+              <input type="range" id="attendees" min="2" max="50" value="5" class="slider" aria-describedby="attendees-hint">
+              <div class="slider-labels">
+                <span>2</span>
+                <span>50</span>
+              </div>
+              <p class="input-hint" id="attendees-hint">How many people are typically in this meeting?</p>
+            </div>
+
+            <!-- Salary -->
+            <div class="input-group">
+              <label for="salary">
+                <span class="label-text">Average Annual Salary</span>
+              </label>
+              <div class="salary-wrapper">
+                <div class="salary-presets" role="group" aria-label="Salary presets">
+                  <button type="button" class="preset-btn" data-salary="120000">Designer<span class="preset-amount">$120k</span></button>
+                  <button type="button" class="preset-btn" data-salary="130000">PM<span class="preset-amount">$130k</span></button>
+                  <button type="button" class="preset-btn active" data-salary="150000">Engineer<span class="preset-amount">$150k</span></button>
+                  <button type="button" class="preset-btn" data-salary="200000">Executive<span class="preset-amount">$200k</span></button>
+                </div>
+                <div class="salary-input-wrap">
+                  <span class="currency-symbol">$</span>
+                  <input type="number" id="salary" value="150000" min="20000" max="1000000" step="5000" class="salary-input" aria-describedby="salary-hint">
+                </div>
+                <p class="input-hint" id="salary-hint">Average fully-loaded salary of attendees</p>
+              </div>
+            </div>
+
+            <!-- Duration -->
+            <div class="input-group">
+              <label><span class="label-text">Meeting Duration</span></label>
+              <div class="chip-group" role="radiogroup" aria-label="Meeting duration">
+                <button type="button" class="chip" data-duration="15">15 min</button>
+                <button type="button" class="chip active" data-duration="30">30 min</button>
+                <button type="button" class="chip" data-duration="45">45 min</button>
+                <button type="button" class="chip" data-duration="60">1 hr</button>
+                <button type="button" class="chip" data-duration="90">1.5 hr</button>
+              </div>
+            </div>
+
+            <!-- Frequency -->
+            <div class="input-group">
+              <label><span class="label-text">Meeting Frequency</span></label>
+              <div class="chip-group" role="radiogroup" aria-label="Meeting frequency">
+                <button type="button" class="chip" data-frequency="once">Once</button>
+                <button type="button" class="chip" data-frequency="daily">Daily</button>
+                <button type="button" class="chip active" data-frequency="weekly">Weekly</button>
+                <button type="button" class="chip" data-frequency="biweekly">Biweekly</button>
+                <button type="button" class="chip" data-frequency="monthly">Monthly</button>
+              </div>
+            </div>
+
+            <!-- Prep Time -->
+            <div class="input-group">
+              <label><span class="label-text">Prep Time per Person</span>
+                <span class="label-badge">Hidden cost!</span>
+              </label>
+              <div class="chip-group" role="radiogroup" aria-label="Prep time per person">
+                <button type="button" class="chip" data-prep="0">None</button>
+                <button type="button" class="chip active" data-prep="5">5 min</button>
+                <button type="button" class="chip" data-prep="10">10 min</button>
+                <button type="button" class="chip" data-prep="15">15 min</button>
+                <button type="button" class="chip" data-prep="30">30 min</button>
+              </div>
+              <p class="input-hint">Reading agendas, gathering updates, context switching...</p>
+            </div>
+          </div>
+
+          <!-- Results Panel -->
+          <div class="results-panel">
+            <div class="results-sticky">
+              <h2 class="panel-title">The Real Cost</h2>
+
+              <!-- Hero Stat -->
+              <div class="hero-stat">
+                <div class="hero-stat-label">Cost Per Meeting</div>
+                <div class="hero-stat-value">
+                  <span class="currency">$</span><span id="cost-per-meeting" class="counter">0</span>
+                </div>
+              </div>
+
+              <!-- Stats Grid -->
+              <div class="stats-grid">
+                <div class="stat-card">
+                  <div class="stat-value"><span class="currency-sm">$</span><span id="cost-monthly" class="counter">0</span></div>
+                  <div class="stat-label">Monthly Cost</div>
+                </div>
+                <div class="stat-card stat-card-accent">
+                  <div class="stat-value"><span class="currency-sm">$</span><span id="cost-annual" class="counter">0</span></div>
+                  <div class="stat-label">Annual Cost</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-value"><span id="hours-annual" class="counter">0</span><span class="stat-unit"> hrs</span></div>
+                  <div class="stat-label">Hours per Year</div>
+                </div>
+              </div>
+
+              <!-- Equivalence Comparisons -->
+              <div class="equivalence" id="equivalence">
+                <div class="equiv-title">That's equivalent to...</div>
+                <div class="equiv-items" id="equiv-items">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+
+              <!-- Prep time breakdown -->
+              <div class="prep-breakdown" id="prep-breakdown">
+                <div class="prep-breakdown-title">💡 Prep time alone costs</div>
+                <div class="prep-breakdown-value"><span class="currency-sm">$</span><span id="prep-cost-annual">0</span>/year</div>
+              </div>
+
+              <!-- Share -->
+              <div class="share-section">
+                <button type="button" class="share-btn" id="btn-copy" aria-label="Copy shareable link">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10.5 1h-7A1.5 1.5 0 002 2.5v9h1V2.5a.5.5 0 01.5-.5h7V1zm2 2h-6.5A1.5 1.5 0 004.5 4.5v9A1.5 1.5 0 006 15h6.5a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0012.5 3zm0 11H6a.5.5 0 01-.5-.5v-9A.5.5 0 016 4h6.5a.5.5 0 01.5.5v9a.5.5 0 01-.5.5z" fill="currentColor"/></svg>
+                  <span id="copy-text">Copy Link</span>
+                </button>
+                <button type="button" class="share-btn share-btn-twitter" id="btn-twitter" aria-label="Share on Twitter">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M12.6.75h2.454l-5.36 6.126L16 15.25h-4.937l-3.867-5.055-4.425 5.055H.316l5.733-6.554L0 .75h5.063l3.495 4.622L12.6.75zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633z" fill="currentColor"/></svg>
+                  Share on X
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-icon">📊</div>
+          <h2>Want to see your <em>real</em> meeting costs?</h2>
+          <p>This calculator gives you an estimate. CalWizz connects to your Google Calendar and shows you <strong>exactly</strong> which meetings cost the most — with real attendee data, not guesswork.</p>
+          <a href="https://app.calwizz.com" class="cta-button">Try CalWizz Free →</a>
+          <div class="cta-features">
+            <span class="cta-feature">✓ Google Calendar sync</span>
+            <span class="cta-feature">✓ Real cost analytics</span>
+            <span class="cta-feature">✓ Free to start</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof / Info -->
+    <section class="info-section">
+      <div class="container">
+        <h2>Why Meeting Costs Matter</h2>
+        <div class="info-grid">
+          <div class="info-card">
+            <div class="info-icon">🕐</div>
+            <h3>$37B wasted yearly</h3>
+            <p>US companies waste an estimated $37 billion per year on unproductive meetings, according to research by Atlassian.</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">📅</div>
+            <h3>23 hours per week</h3>
+            <p>The average professional spends 23 hours per week in meetings — up from just 10 hours in the 1960s.</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">💰</div>
+            <h3>Hidden prep costs</h3>
+            <p>For every hour in a meeting, attendees spend an average of 30 minutes preparing. That's time most companies never count.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">CalWizz</span>
+        <p>Calendar Analytics for Teams</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://calwizz.com">Home</a>
+        <a href="https://calwizz.com/blog">Blog</a>
+        <a href="https://calwizz.com/privacy">Privacy</a>
+        <a href="https://app.calwizz.com">Sign In</a>
+      </div>
+      <div class="footer-copy">
+        © <span id="footer-year">2025</span> CalWizz. Built with care for teams who value their time.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="alert" aria-live="polite">Link copied to clipboard!</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
