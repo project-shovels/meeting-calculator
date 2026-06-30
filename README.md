@@ -16,6 +16,24 @@ A free meeting cost calculator tool that shows teams the true cost of their meet
 - **SEO optimized** — meta tags, OG tags, Schema.org markup
 - **Accessible** — keyboard navigation, ARIA labels, reduced-motion support
 
+## Agent Startup
+
+This repository participates in the local Brain + Workspace + Operating-System + Software Factory ecosystem.
+
+Before meaningful work, run:
+
+```sh
+/Users/adamroberts/Projects/Operating-System/conductor/agent-context.sh
+```
+
+For proposed ideas or tasks, run intake first:
+
+```sh
+/Users/adamroberts/Projects/Operating-System/conductor/idea-intake.sh --task "Describe the proposed work"
+```
+
+Read [AGENTS.md](AGENTS.md) and [docs/assistant-startup.md](docs/assistant-startup.md) before planning or implementing.
+
 ## Files
 
 ```
