@@ -113,11 +113,22 @@ Hours per Year = ((Duration + Prep) / 60) × Attendees × meetings/year
 
 ## OG Image
 
-The `og:image` meta tag points to `/calculator/og-image.png`. Create a 1200×630 image with:
-- CalWizz branding (green #2d5a3d background)
-- "Meeting Cost Calculator" headline
-- "How much do your meetings REALLY cost?"
-- CalWizz logo
+The `og:image` / `twitter:image` meta tags point to `/calculator/og-image.png`. The
+rendered asset is committed at the repo root (`og-image.png`, 1200×630) alongside its
+source (`og-image.html`), so it deploys automatically at the same path as `index.html`.
+
+To regenerate after a brand/copy change, render the HTML source with headless Chrome:
+
+```bash
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+  --headless=new --disable-gpu --hide-scrollbars \
+  --force-device-scale-factor=1 --window-size=1200,630 \
+  --screenshot="$(pwd)/og-image.png" \
+  "file://$(pwd)/og-image.html"
+```
+
+(Any headless Chrome/Chromium build works — swap the binary path as needed. Verify
+output with `sips -g pixelWidth -g pixelHeight og-image.png`, expect 1200x630.)
 
 ## Customization
 
